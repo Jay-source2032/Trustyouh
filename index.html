@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Private Access</title>
+<title>Premium Content Hub</title>
 
 <style>
 
@@ -18,32 +18,19 @@
     --primary:#ff4d6d;
     --primary-dark:#ff006e;
     --accent:#ff8fab;
-    --glass:rgba(255,255,255,.06);
-    --glass-border:rgba(255,255,255,.10);
 }
 
 body{
-
     min-height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     padding:20px;
 
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 
-    /* ===========================
-       TROQUE O LINK ABAIXO
-       PELA SUA IMAGEM DE FUNDO
-       =========================== */
-
     background:
-    linear-gradient(
-        rgba(0,0,0,.72),
-        rgba(0,0,0,.72)
-    ),
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
     url("https://i.imgur.com/NnrLbX4.jpeg");
 
     background-size:cover;
@@ -51,63 +38,9 @@ body{
     background-attachment:fixed;
 
     color:white;
-
-    position:relative;
-    overflow-x:hidden;
-}
-
-/* EFEITOS DE LUZ */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    width:450px;
-    height:450px;
-
-    top:-150px;
-    left:-100px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(255,0,110,.25),
-        transparent 70%
-    );
-
-    pointer-events:none;
-}
-
-body::after{
-
-    content:"";
-
-    position:fixed;
-
-    width:400px;
-    height:400px;
-
-    right:-120px;
-    bottom:-120px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(255,77,109,.18),
-        transparent 70%
-    );
-
-    pointer-events:none;
 }
 
 .container{
-
     width:100%;
     max-width:560px;
 
@@ -131,13 +64,9 @@ body::after{
     0 0 120px rgba(255,0,110,.08);
 
     text-align:center;
-
-    position:relative;
-    z-index:2;
 }
 
 .avatar{
-
     width:95px;
     height:95px;
 
@@ -159,225 +88,146 @@ body::after{
         #ff006e,
         #ff008c
     );
-
-    box-shadow:
-    0 0 25px rgba(255,0,110,.55),
-    0 0 60px rgba(255,0,110,.25);
 }
 
 .badge{
-
     font-size:12px;
-
     font-weight:700;
-
     letter-spacing:1px;
-
     color:var(--primary);
 }
 
 h1{
-
     margin-top:10px;
-
     font-size:34px;
-
     font-weight:800;
 }
 
 .subtitle{
-
     margin-top:14px;
-
     opacity:.85;
-
     line-height:1.6;
 }
 
 .highlight{
-
     color:var(--accent);
-
     font-weight:700;
 }
 
 .online{
-
     display:inline-block;
-
     margin-top:18px;
-
     padding:8px 14px;
 
     border-radius:999px;
 
-    background:
-    rgba(74,222,128,.12);
-
-    border:
-    1px solid rgba(74,222,128,.25);
+    background:rgba(74,222,128,.12);
+    border:1px solid rgba(74,222,128,.25);
 
     color:#4ade80;
 
     font-size:13px;
-
     font-weight:700;
 }
 
 .gallery-title{
-
     margin-top:26px;
     margin-bottom:12px;
 
     text-align:left;
 
     color:var(--accent);
-
     font-size:14px;
-
     font-weight:700;
 }
 
-/* GALERIA */
-
 .gallery{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:12px;
 }
 
 .main-preview{
-
     grid-column:1 / span 2;
 }
 
 .main-preview,
 .small-preview{
-
-    position:relative;
-
     overflow:hidden;
-
     border-radius:16px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-    0 0 20px rgba(255,0,110,.08);
 }
 
 .gallery img{
-
     width:100%;
-
     display:block;
-
     object-fit:cover;
-
-    transition:.35s;
 }
 
 .main-preview img{
-
     height:260px;
 }
 
 .small-preview img{
-
     height:180px;
 }
 
 .overlay{
-
     position:absolute;
-
     inset:0;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    background:
-    linear-gradient(
-        rgba(0,0,0,.1),
-        rgba(0,0,0,.55)
-    );
-
+    background:rgba(0,0,0,.35);
     font-weight:700;
-
-    letter-spacing:1px;
-
-    font-size:15px;
 }
 
-.gallery div:hover img{
-
-    transform:scale(1.05);
+.main-preview,
+.small-preview{
+    position:relative;
 }
-
-/* BENEFICIOS */
 
 .features{
-
     margin-top:25px;
-
     text-align:left;
 
     background:rgba(255,255,255,.04);
 
-    border:1px solid var(--glass-border);
-
     border-radius:14px;
-
     padding:18px;
 }
 
 .features div{
-
     margin:8px 0;
 }
 
 .age-box{
-
     margin-top:22px;
-
     padding:16px;
 
     border-radius:14px;
 
     background:rgba(255,255,255,.04);
 
-    border:1px solid var(--glass-border);
-
     font-size:14px;
 }
 
 .section-title{
-
     margin-top:25px;
     margin-bottom:12px;
-
     font-weight:700;
 }
 
 .option{
-
     width:100%;
-
     padding:14px;
-
     margin-bottom:10px;
 
     border:none;
-
     border-radius:12px;
 
     color:white;
-
     cursor:pointer;
 
     background:
@@ -386,124 +236,45 @@ h1{
         rgba(255,255,255,.08),
         rgba(255,255,255,.04)
     );
-
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.25s;
 }
 
 .option:hover{
-
-    border-color:var(--primary);
-
     transform:translateY(-2px);
-
-    box-shadow:
-    0 0 20px rgba(255,0,110,.15);
 }
 
-/* BOTAO PRINCIPAL */
-
 .main-btn{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
     width:100%;
 
     margin-top:20px;
-
     padding:18px;
 
     border:none;
-
     border-radius:14px;
 
     cursor:pointer;
 
     color:white;
-
     font-weight:800;
-
     font-size:16px;
-
-    text-align:center;
 
     background:
     linear-gradient(
         90deg,
         #ff4d6d,
-        #ff006e,
-        #ff4d6d
+        #ff006e
     );
-
-    background-size:200%;
-
-    animation:
-    shine 4s linear infinite,
-    pulse 3s ease infinite;
-
-    box-shadow:
-    0 0 25px rgba(255,0,110,.45);
-}
-
-@keyframes shine{
-
-    from{
-        background-position:0%;
-    }
-
-    to{
-        background-position:200%;
-    }
 }
 
 .note{
-
     margin-top:18px;
-
     opacity:.8;
-
     font-size:14px;
-
-    line-height:1.6;
 }
 
 .footer{
-
     margin-top:28px;
-
     opacity:.55;
-
     font-size:12px;
-}
-
-.footer span{
-
-    display:block;
-    margin-top:4px;
-}
-
-@media(max-width:600px){
-
-    .container{
-        padding:24px;
-    }
-
-    h1{
-        font-size:28px;
-    }
-
-    .main-preview img{
-        height:220px;
-    }
-
-    .small-preview img{
-        height:150px;
-    }
 }
 
 </style>
@@ -512,16 +283,16 @@ h1{
 
 <div class="container">
 
-    <div class="avatar">👀</div>
+    <div class="avatar">✨</div>
 
     <div class="badge">
-        PRIVATE ACCESS
+        OFFICIAL ACCESS
     </div>
 
-    <h1>VIP ACCESS</h1>
+    <h1>Premium Content Hub</h1>
 
     <div class="subtitle">
-        Access exclusive updates and premium resources through private contact.
+        Access featured content, updates and private resources.
         <br>
         <span class="highlight">
             Fast • Direct • Secure
@@ -529,7 +300,7 @@ h1{
     </div>
 
     <div class="online">
-        🟢 1427 users viewing now
+        🟢 Online
     </div>
 
     <div class="gallery-title">
@@ -539,24 +310,24 @@ h1{
     <div class="gallery">
 
         <div class="main-preview">
-            <img src="https://i.imgur.com/QWlbXlj.jpeg" alt="Featured Preview">
-            <div class="overlay">✨ Best Seller</div>
+            <img src="https://i.imgur.com/LUdb9Ti.jpeg" alt="">
+            <div class="overlay">✨ Featured</div>
         </div>
 
         <div class="small-preview">
-            <img src="https://i.imgur.com/QpHYEiJ.jpeg" alt="Trending">
+            <img src="https://i.imgur.com/QpHYEiJ.jpeg" alt="">
             <div class="overlay">🔥 Trending</div>
         </div>
 
         <div class="small-preview">
-            <img src="https://i.imgur.com/fLMyyVa.jpeg" alt="Popular">
+            <img src="https://i.imgur.com/fLMyyVa.jpeg" alt="">
             <div class="overlay">⭐ Popular</div>
         </div>
 
     </div>
 
     <div class="features">
-        <div>📂 Exclusive Collections</div>
+        <div>📂 Featured Collections</div>
         <div>⭐ Premium Access</div>
         <div>🔥 Frequent Updates</div>
         <div>⚡ Direct Support</div>
@@ -570,46 +341,37 @@ h1{
         Choose an Option
     </div>
 
-    <button class="option"
-        onclick="sendTelegram('I want to see the Cp Collections')">
-            ⭐ Cp Collection
-        </button>
+    <button class="option" onclick="sendTelegram('Show me the Premium Collection')">
+        ⭐ Premium Collection
+    </button>
 
+    <button class="option" onclick="sendTelegram('Show me the Featured Content')">
+        📂 Featured Content
+    </button>
 
-        <button class="option"
-        onclick="sendTelegram('I want to see the Gay')">
-            ⭐ Gay Content
-        </button>
-        
-         <button class="option"
-        onclick="sendTelegram('I want to see the Omegle Folders')">
-            ⭐ Omegle Folders
-        </button>
+    <button class="option" onclick="sendTelegram('Show me the Video Library')">
+        🎥 Video Library
+    </button>
 
-        <button class="option"
-        onclick="sendTelegram('Show me the Teens Collection')">
-            🎥 Teen Collection
-        </button>
+    <button class="option" onclick="sendTelegram('Show me the Trending Content')">
+        🔥 Trending Content
+    </button>
 
-        <button class="option"
-        onclick="sendTelegram('Show me your Newest Content')">
-            🔥 New Releases
-        </button>
+    <button class="option" onclick="sendTelegram('Show me the New Releases')">
+        🚀 New Releases
+    </button>
 
-        <button class="option"
-        onclick="sendTelegram('I want the Rape Content')">
-            📂 Rape Content
-        </button>
-
-    <!-- TROQUE O USUARIO DO TELEGRAM -->
+    <button class="option" onclick="sendTelegram('Show me the Full Archive')">
+        📁 Full Archive
+    </button>
 
     <button
-class="main-btn"
-onclick="sendTelegram('Hi, I would like to view the full menu')">
+    class="main-btn"
+    onclick="sendTelegram('Hello, I came from the website. Could I see the full catalog?')">
 
-    👉 I want full menu
+        👉 View Full Catalog
 
-</button>
+    </button>
 
     <div class="note">
         Private communication • Secure access • Fast response
@@ -617,15 +379,13 @@ onclick="sendTelegram('Hi, I would like to view the full menu')">
 
     <div class="footer">
         Contact available via Telegram
-        If u prefer a VIP GROUP send message to suppoort.
-        <span>Exclusive access</span>
     </div>
 
 </div>
 
 <script>
 
-const telegramUser = "SNAP_SELL3R";
+const telegramUser = "wachazzin";
 
 function sendTelegram(message){
 
@@ -636,5 +396,6 @@ function sendTelegram(message){
 }
 
 </script>
+
 </body>
 </html>
