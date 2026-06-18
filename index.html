@@ -3,133 +3,638 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Private Access</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  background: linear-gradient(135deg, #020617, #1e0033, #3b0000);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.container {
-  max-width: 420px;
-  width: 100%;
-  padding: 30px 22px;
-  text-align: center;
+:root{
+    --primary:#ff4d6d;
+    --primary-dark:#ff006e;
+    --accent:#ff8fab;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.10);
 }
 
-/* BADGE */
-.badge {
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #ff4d6d;
-  margin-bottom: 12px;
-  opacity: 0.8;
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+
+    /* ===========================
+       TROQUE O LINK ABAIXO
+       PELA SUA IMAGEM DE FUNDO
+       =========================== */
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.72),
+        rgba(0,0,0,.72)
+    ),
+    url("https://i.imgur.com/NnrLbX4.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:white;
+
+    position:relative;
+    overflow-x:hidden;
 }
 
-/* TITLE */
-h1 {
-  font-size: 30px;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1.2;
+/* EFEITOS DE LUZ */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:450px;
+    height:450px;
+
+    top:-150px;
+    left:-100px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,0,110,.25),
+        transparent 70%
+    );
+
+    pointer-events:none;
 }
 
-/* SUBTEXT */
-.subtitle {
-  font-size: 15px;
-  opacity: 0.75;
-  margin-top: 12px;
-  line-height: 1.5;
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:400px;
+    height:400px;
+
+    right:-120px;
+    bottom:-120px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,77,109,.18),
+        transparent 70%
+    );
+
+    pointer-events:none;
 }
 
-/* BUTTON */
-.btn {
-  display: block;
-  margin-top: 32px;
-  padding: 18px;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  background: linear-gradient(45deg, #ff4d6d, #ff006e);
-  color: white;
-  box-shadow: 0 0 25px rgba(255, 0, 110, 0.6);
-  transition: all 0.2s ease;
+.container{
+
+    width:100%;
+    max-width:560px;
+
+    padding:32px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.04)
+    );
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,80,130,.15);
+
+    box-shadow:
+    0 0 50px rgba(255,0,110,.18),
+    0 0 120px rgba(255,0,110,.08);
+
+    text-align:center;
+
+    position:relative;
+    z-index:2;
 }
 
-.btn:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 35px rgba(255, 0, 110, 0.9);
+.avatar{
+
+    width:95px;
+    height:95px;
+
+    margin:auto;
+    margin-bottom:18px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:42px;
+
+    background:
+    linear-gradient(
+        45deg,
+        #ff4d6d,
+        #ff006e,
+        #ff008c
+    );
+
+    box-shadow:
+    0 0 25px rgba(255,0,110,.55),
+    0 0 60px rgba(255,0,110,.25);
 }
 
-/* NOTE */
-.note {
-  margin-top: 22px;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 1.5;
+.badge{
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:var(--primary);
 }
 
-.highlight {
-  font-weight: 700;
-  color: #ff4d6d;
+h1{
+
+    margin-top:10px;
+
+    font-size:34px;
+
+    font-weight:800;
 }
 
-/* FOOTER */
-.footer {
-  margin-top: 40px;
-  font-size: 12px;
-  opacity: 0.5;
-  line-height: 1.4;
+.subtitle{
+
+    margin-top:14px;
+
+    opacity:.85;
+
+    line-height:1.6;
 }
 
-.footer span {
-  display: block;
-  margin-top: 5px;
-  font-size: 11px;
-  opacity: 0.6;
+.highlight{
+
+    color:var(--accent);
+
+    font-weight:700;
 }
+
+.online{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:
+    rgba(74,222,128,.12);
+
+    border:
+    1px solid rgba(74,222,128,.25);
+
+    color:#4ade80;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.gallery-title{
+
+    margin-top:26px;
+    margin-bottom:12px;
+
+    text-align:left;
+
+    color:var(--accent);
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+/* GALERIA */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.main-preview{
+
+    grid-column:1 / span 2;
+}
+
+.main-preview,
+.small-preview{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 0 20px rgba(255,0,110,.08);
+}
+
+.gallery img{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:.35s;
+}
+
+.main-preview img{
+
+    height:260px;
+}
+
+.small-preview img{
+
+    height:180px;
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.1),
+        rgba(0,0,0,.55)
+    );
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    font-size:15px;
+}
+
+.gallery div:hover img{
+
+    transform:scale(1.05);
+}
+
+/* BENEFICIOS */
+
+.features{
+
+    margin-top:25px;
+
+    text-align:left;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid var(--glass-border);
+
+    border-radius:14px;
+
+    padding:18px;
+}
+
+.features div{
+
+    margin:8px 0;
+}
+
+.age-box{
+
+    margin-top:22px;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid var(--glass-border);
+
+    font-size:14px;
+}
+
+.section-title{
+
+    margin-top:25px;
+    margin-bottom:12px;
+
+    font-weight:700;
+}
+
+.option{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.04)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.25s;
+}
+
+.option:hover{
+
+    border-color:var(--primary);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 20px rgba(255,0,110,.15);
+}
+
+/* BOTAO PRINCIPAL */
+
+.main-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:16px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff4d6d,
+        #ff006e,
+        #ff4d6d
+    );
+
+    background-size:200%;
+
+    animation:
+    shine 4s linear infinite,
+    pulse 3s ease infinite;
+
+    box-shadow:
+    0 0 25px rgba(255,0,110,.45);
+}
+
+@keyframes shine{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:200%;
+    }
+}
+
+.note{
+
+    margin-top:18px;
+
+    opacity:.8;
+
+    font-size:14px;
+
+    line-height:1.6;
+}
+
+.footer{
+
+    margin-top:28px;
+
+    opacity:.55;
+
+    font-size:12px;
+}
+
+.footer span{
+
+    display:block;
+    margin-top:4px;
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:24px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .main-preview img{
+        height:220px;
+    }
+
+    .small-preview img{
+        height:150px;
+    }
+}
+
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
-  <div class="badge">🔞 18+ ONLY</div>
+    <div class="avatar">👀</div>
 
-  <h1>
-    Private Access 👀
-  </h1>
+    <div class="badge">
+        PRIVATE ACCESS
+    </div>
 
-  <div class="subtitle">
-    Not everything can be posted publicly...<br>
-    <span class="highlight">you already know why 😏</span>
-  </div>
+    <h1>VIP ACCESS</h1>
 
-  <!-- 🔗 EDIT YOUR TELEGRAM USER -->
-  <a href="https://t.me/Trustyouh?text=I%20want%20to%20buy,%20show%20me%20menu" class="btn">
-    👉 View Full Menu
-  </a>
+    <div class="subtitle">
+        Access exclusive updates and premium resources through private contact.
+        <br>
+        <span class="highlight">
+            Fast • Direct • Secure
+        </span>
+    </div>
 
-  <div class="note">
-    Send a message asking for the menu 😉<br>
-    <span class="highlight">exclusive folders available 📂🔥</span>
-  </div>
+    <div class="online">
+        🟢 1427 users viewing now
+    </div>
 
-  <div class="footer">
-    Only serious buyers message.<br>
-    <span>If you know, you know.</span>
-  </div>
+    <div class="gallery-title">
+        Featured Content
+    </div>
+
+    <div class="gallery">
+
+        <div class="main-preview">
+            <img src="https://i.imgur.com/AgVKWYf.jpeg" alt="Featured Preview">
+            <div class="overlay">✨ Best Seller</div>
+        </div>
+
+        <div class="small-preview">
+            <img src="https://i.imgur.com/QpHYEiJ.jpeg" alt="Trending">
+            <div class="overlay">🔥 Trending</div>
+        </div>
+
+        <div class="small-preview">
+            <img src="https://i.imgur.com/fLMyyVa.jpeg" alt="Popular">
+            <div class="overlay">⭐ Popular</div>
+        </div>
+
+    </div>
+
+    <div class="features">
+        <div>📂 Exclusive Collections</div>
+        <div>⭐ Premium Access</div>
+        <div>🔥 Frequent Updates</div>
+        <div>⚡ Direct Support</div>
+    </div>
+
+    <div class="age-box">
+        By continuing, you confirm that you meet the age requirements applicable in your jurisdiction.
+    </div>
+
+    <div class="section-title">
+        Choose an Option
+    </div>
+
+    <button class="option"
+        onclick="sendTelegram('I want to see the Cp Collections')">
+            ⭐ Cp Collection
+        </button>
+
+
+        <button class="option"
+        onclick="sendTelegram('I want to see the Gay')">
+            ⭐ Gay Content
+        </button>
+        
+         <button class="option"
+        onclick="sendTelegram('I want to see the Omegle Folders')">
+            ⭐ Omegle Folders
+        </button>
+
+        <button class="option"
+        onclick="sendTelegram('Show me the Teens Collection')">
+            🎥 Teen Collection
+        </button>
+
+        <button class="option"
+        onclick="sendTelegram('Show me your Newest Content')">
+            🔥 New Releases
+        </button>
+
+        <button class="option"
+        onclick="sendTelegram('I want the Rape Content')">
+            📂 Rape Content
+        </button>
+
+    <!-- TROQUE O USUARIO DO TELEGRAM -->
+
+    <button
+class="main-btn"
+onclick="sendTelegram('Hi, I would like to view the full menu')">
+
+    👉 I want full menu
+
+</button>
+
+    <div class="note">
+        Private communication • Secure access • Fast response
+    </div>
+
+    <div class="footer">
+        Contact available via Telegram
+        If u prefer a VIP GROUP send message to suppoort.
+        <span>Exclusive access</span>
+    </div>
 
 </div>
 
+<script>
+
+const telegramUser = "SNAP_SELL3R";
+
+function sendTelegram(message){
+
+    const url =
+    `https://t.me/${telegramUser}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+}
+
+</script>
 </body>
 </html>
